@@ -246,6 +246,14 @@ assert(n[0][2] == 0);
 assert(n[1][1] == n[2][2]);
 assert(p[2]);
 assert(p[1][2] == 'c');
+d = [1,[1,2,3], "2"];
+d[4] = [];
+d[4][4] = "test";
+assert(d[1][0] == 1);
+assert(d[3] isa null);
+assert(d[3] == null);
+assert(type(d[4][0]) == "null");
+assert(d[4][4] == "test");
 println("> List Operations: Passed");
 
 // Math operators

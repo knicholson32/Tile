@@ -519,13 +519,28 @@ public class EvalVisitor extends TileBaseVisitor<TileValue> {
     		if (!idx.isNumber()) {
         		throw new EvalException(ctx);
     		}
+				int curSize = val.asList().size();
+				int reqIndex = idx.asDouble().intValue();
+				if(reqIndex >= curSize){
+					throw new EvalException("Array out of bounds: Size: " + curSize + " : Index: " + reqIndex + ":",ctx);
+				}
     		val = val.asList().get(idx.asDouble().intValue());
     	}
     	TileValue idx = this.visit(indexes.get(indexes.size() - 1));
 			if (!idx.isNumber()) {
 	    		throw new EvalException(ctx);
 			}
-    	val.asList().set(idx.asDouble().intValue(), newVal);
+			int curSize = val.asList().size();
+			int reqIndex = idx.asDouble().intValue();
+			if(reqIndex >= curSize){
+				// Need to add the value to the end. Must make sure we are one before the end location.
+				for(int j = curSize; j < reqIndex; j++){
+					val.asList().add(TileValue.NULL);
+				}
+				val.asList().add(newVal);
+			}else{
+    		val.asList().set(idx.asDouble().intValue(), newVal);
+			}
     }
 
     // functionCall indexes?                    #functionCallExpression
