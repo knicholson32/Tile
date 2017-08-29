@@ -1,5 +1,7 @@
 ![Tile Logo](http://www.nickguys.com/lang/Tile-Small-Logo.png)
 
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]() [![Bitbucket issues](https://img.shields.io/bitbucket/issues/atlassian/python-bitbucket.svg)]() 
+
 Install Antlr4:
 ```
 #!javascript
