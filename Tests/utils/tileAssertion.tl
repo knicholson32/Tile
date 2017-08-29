@@ -275,4 +275,6 @@ assert(!canBeNumber(" 123"));
 assert(!canBeNumber("123Ed"));
 assert(!canBeNumber("123E"));
 
+assert(false);
+
 println("0");
