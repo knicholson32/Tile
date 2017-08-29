@@ -1,7 +1,6 @@
 /*
     A script for testing Tile Language syntax.
-
-    Testing
+    This is used to ensure the language passes.
 */
 import "./Tests/utils/global.tl";
 println("> Imports: Passed");
