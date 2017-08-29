@@ -17,21 +17,19 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 public class EvalVisitor extends TileBaseVisitor<TileValue> {
 	private static ReturnValue returnValue = new ReturnValue();
     private Scope scope;
-    //private Map<String, Function> functions;
 		private Map<String, Struct> structs;
 
 		public boolean firstBlock = true;
 		private boolean createBlockScope = true;
 
-    public EvalVisitor(Scope scope, /*Map<String, Function> functions,*/ Map<String, Struct> structs) {
+    public EvalVisitor(Scope scope, Map<String, Struct> structs) {
         this.scope = scope;
-        //this.functions = functions;
 				this.structs = structs;
 
     }
 
-		public EvalVisitor(Scope scope, /*Map<String, Function> functions,*/ Map<String, Struct> structs, boolean firstBlock){
-			this(scope,/*functions,*/structs);
+		public EvalVisitor(Scope scope, Map<String, Struct> structs, boolean firstBlock){
+			this(scope, structs);
 			this.firstBlock = firstBlock;
 		}
 
@@ -437,17 +435,6 @@ public class EvalVisitor extends TileBaseVisitor<TileValue> {
         }
 		return new TileValue(lhs.asBoolean() || rhs.asBoolean());
     }
-
-    /*// expression '?' expression ':' expression #ternaryExpression
-    @Override
-    public TileValue visitTernaryExpression(TileParser.TernaryExpressionContext ctx) {
-    	TileValue condition = this.visit(ctx.expression(0));
-    	if (condition.asBoolean()) {
-    		return new TileValue(this.visit(ctx.expression(1)));
-    	} else {
-    		return new TileValue(this.visit(ctx.expression(2)));
-    	}
-    }*/
 
     // expression In expression                 #inExpression
 	@Override
