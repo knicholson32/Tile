@@ -8,7 +8,7 @@
 Tile is a Java based (with more to come) programming language written for high fidelity mathematical operations. Its original intended use was for simulated autopilot systems for spacecraft, however it continues to evolve.
 
 ## Getting Started
-Tile is compiled in Java and depends heavily on [Antlr4](https://github.com/antlr/antlr4) for grammar and lexer support. 
+Tile is compiled in Java and depends heavily on [Antlr4](https://github.com/antlr/antlr4) for grammar and lexer support.
 
 ### To Install Antlr4:
 For Unix systems:

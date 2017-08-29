@@ -1,11 +1,11 @@
 /*
     A script for testing Tile Language syntax.
     This is used to ensure the language passes.
-
     COPYRIGHT 2017 ROUNDPIXEL
 */
 import "./Tests/utils/global.tl";
 println("> Imports: Passed");
+
 // boolean expressions
 assert(true);
 assert(true || false);
@@ -14,6 +14,7 @@ assert(true && true);
 assert(!true || !false);
 assert(true && (true || false));
 println("> Boolean Expressions: Passed");
+
 // relational expressions
 assert(1 < 2);
 assert(666 >= 666);
@@ -21,7 +22,7 @@ assert(-5 > -6);
 assert(0 >= -1);
 assert('a' < 's');
 assert('sw' <= 'sw');
-println("> Rational Expressions: Passed");
+println("> Relational Expressions: Passed");
 
 // add
 assert(1 + 999 == 1000);
@@ -36,17 +37,68 @@ assert(3 * 50 == 150);
 assert(4 / 2 == 2);
 assert(1 / 4 == 0.25);
 assert(999999 % 3 == 0);
+assert(30 % 4 == 2);
 assert(-5 * -5 == 25);
 println("> Multiplication Operations: Passed");
 
 // power
 assert(2^10 == 1024);
 assert(3^3 == 27);
+assert(2^-3 == 0.125);
 println("> Power Operations: Passed");
 
-// for- and while statements
+// Variables
+a = true;
+b = false;
+assert(a);
+assert(!b);
+assert(a||b);
+a = 4;
+assert(a == 4);
+a = "str";
+assert(a == "str");
+b = "test";
+assert(!(a == b));
+println("> Variable Operations: Passed");
+
+// Variable Types
+a = 50;
+assert(a isa number);
+assert(type(a) == "number");
+a = "test";
+assert(a isa string);
+assert(type(a) == "string");
+a = false;
+assert(a isa bool);
+assert(type(a) == "bool");
+assert(!(a isa string));
+assert(!(a isa number));
+b = null;
+assert(b isa null);
+println("> Variable Types: Passed");
+
+// The eval function
+eval("a = 54");
+assert(a == 54);
+eval("b = (true && (false || true))");
+assert(b);
+println("> Eval Operations: Passed");
+
+// For and While Statements
 a = 0;
 for (i=1 : 10) {
+  a = a + i;
+}
+assert(a == (1+2+3+4+5+6+7+8+9+10));
+
+a = 0;
+for (i=1; i<11; i++) {
+  a = a + i;
+}
+assert(a == (1+2+3+4+5+6+7+8+9+10));
+
+a = 0;
+for (i = 1 to 10) {
   a = a + i;
 }
 assert(a == (1+2+3+4+5+6+7+8+9+10));
@@ -60,7 +112,7 @@ while (b < 0) {
 assert(c == -(1+2+3+4+5+6+7+8+9+10));
 println("> Loop Statements: Passed");
 
-// if
+// If Statements
 a = 123;
 if (a > 200) {
   assert(false);
@@ -81,9 +133,15 @@ if (false) {
 } else {
   assert(true);
 }
+
+b = false;
+if (true) {
+  b = true;
+}
+assert(b);
 println("> If Statements: Passed");
 
-// functions
+// Functions
 function twice(n) {
   temp = n + n;
   return temp;
@@ -134,6 +192,11 @@ assert(squared(squared(squared(2))) == 2^2^2^2);
 assert(lt() == [7,8,9]);
 assert(size(lt()) == 3);
 assert(lt()[1] == 8);
+
+a = @squared;
+for (i = 1 : 10) {
+  assert(a(i) == squared(i));
+}
 println("> Functions: Passed");
 
 // naive bubble sort
