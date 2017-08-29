@@ -1,3 +1,4 @@
+![Tile Logo](http://www.nickguys.com/lang/Tile-Small-Logo.png)
 Install Antlr4:
 ```
 #!javascript
