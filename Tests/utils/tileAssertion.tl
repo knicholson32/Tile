@@ -197,7 +197,7 @@ assert(abs(5) == 5);
 assert(abs(-4.32) == 4.32);
 assert(abs(0) == 0);
 
-assert(factorial(5) == 120);
+assert(factorial(5) == 121);
 assert(factorial(5.4) == 120);
 assert(factorial(-3) == 6);
 
