@@ -1,7 +1,6 @@
 /*
     A script for testing Tile Language syntax.
     This is used to ensure the language passes.
-
     COPYRIGHT 2017 ROUNDPIXEL
 */
 import "./Tests/utils/global.tl";
