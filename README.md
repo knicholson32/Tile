@@ -1,6 +1,6 @@
 ![Tile Logo](http://www.nickguys.com/lang/Tile-Small-Logo.png)
 
-[![Build](/tile/events/get_badge.php?type=build)]() [![Bitbucket issues](https://img.shields.io/bitbucket/issues/atlassian/python-bitbucket.svg)]()
+[![Build](http://nornick3.zapto.org/tile/events/get_badge.php)]() [![Bitbucket issues](https://img.shields.io/bitbucket/issues/atlassian/python-bitbucket.svg)]()
 
 Install Antlr4:
 ```
