@@ -41,6 +41,7 @@ Once Tile is downloaded and installed, use the following to run the assertion te
 #!javascript
 $ java Main "./Tests/utils/tileAssertion.tl"
 ```
+If the test reaches All Passed, Tile is compiled and working correctly.
 
 ### Using Tile
 Run programs with:
