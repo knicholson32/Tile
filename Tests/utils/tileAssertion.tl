@@ -4,7 +4,7 @@
     Testing
 */
 import "./Tests/utils/global.tl";
-
+println("> Imports: Passed");
 // boolean expressions
 assert(true);
 assert(true || false);
@@ -12,7 +12,7 @@ assert(!false);
 assert(true && true);
 assert(!true || !false);
 assert(true && (true || false));
-
+println("> Boolean Expressions: Passed");
 // relational expressions
 assert(1 < 2);
 assert(666 >= 666);
@@ -20,6 +20,7 @@ assert(-5 > -6);
 assert(0 >= -1);
 assert('a' < 's');
 assert('sw' <= 'sw');
+println("> Rational Expressions: Passed");
 
 // add
 assert(1 + 999 == 1000);
@@ -27,6 +28,7 @@ assert([1] + 1 == [1,1]);
 assert(2 - -2 == 4);
 assert(-1 + 1 == 0);
 assert(1 - 50 == -49);
+println("> Addition Operations: Passed");
 
 // multiply
 assert(3 * 50 == 150);
@@ -34,10 +36,12 @@ assert(4 / 2 == 2);
 assert(1 / 4 == 0.25);
 assert(999999 % 3 == 0);
 assert(-5 * -5 == 25);
+println("> Multiplication Operations: Passed");
 
 // power
 assert(2^10 == 1024);
 assert(3^3 == 27);
+println("> Power Operations: Passed");
 
 // for- and while statements
 a = 0;
@@ -53,6 +57,7 @@ while (b < 0) {
   b = b + 1;
 }
 assert(c == -(1+2+3+4+5+6+7+8+9+10));
+println("> Loop Statements: Passed");
 
 // if
 a = 123;
@@ -75,6 +80,7 @@ if (false) {
 } else {
   assert(true);
 }
+println("> If Statements: Passed");
 
 // functions
 function twice(n) {
@@ -127,6 +133,7 @@ assert(squared(squared(squared(2))) == 2^2^2^2);
 assert(lt() == [7,8,9]);
 assert(size(lt()) == 3);
 assert(lt()[1] == 8);
+println("> Functions: Passed");
 
 // naive bubble sort
 function sort(lt) {
@@ -148,6 +155,7 @@ function sorted(lt) {
 numbers = [3,5,1,4,2];
 sort(numbers);
 assert(numbers == [1,2,3,4,5]);
+println("> Sort: Passed");
 
 // resursive calls
 function fib(n) {
@@ -162,6 +170,7 @@ for (i = 0 to 10) {
   sequence = sequence + fib(i);
 }
 assert(sequence == [0,1,1,2,3,5,8,13,21,34,55]);
+println("> Recursion: Passed");
 
 // lists and lookups, `in` operator
 n = [[1,0,0],[0,1,0],[0,0,1]];
@@ -173,6 +182,7 @@ assert(n[0][2] == 0);
 assert(n[1][1] == n[2][2]);
 assert(p[2]);
 assert(p[1][2] == 'c');
+println("> List Operations: Passed");
 
 // Math operators
 assert(.123 == 0.123);
@@ -220,6 +230,7 @@ assert(pi == 3.1415926536);
 
 assert(toDegrees(pi/3) == 60);
 assert(toRadians(60) == 1.047198);
+println("> Math Operations: Passed");
 
 // String operators
 str = "abc";
@@ -274,5 +285,7 @@ assert(!canBeNumber("1 23"));
 assert(!canBeNumber(" 123"));
 assert(!canBeNumber("123Ed"));
 assert(!canBeNumber("123E"));
+println("> String Operations: Passed");
 
+println("> Tile Language: All Passed");
 println("0");
