@@ -253,6 +253,13 @@ public interface TileVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNullExpression(TileParser.NullExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code functionDeclExpression}
+	 * labeled alternative in {@link TileParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclExpression(TileParser.FunctionDeclExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code functionCallExpression}
 	 * labeled alternative in {@link TileParser#expression}.
 	 * @param ctx the parse tree

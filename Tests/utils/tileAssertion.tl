@@ -141,6 +141,31 @@ if (true) {
 assert(b);
 println("> If Statements: Passed");
 
+// Break and Continue
+i = 0;
+j = 0;
+for(z=1:10){
+
+  while(i < 30){
+    j++;
+    if(i == 10){
+      break;
+    }
+    if(j == 7){
+      continue;
+    }
+    i++;
+  }
+  if(z > 5){
+    i = i + 4;
+    break;
+  }
+}
+assert(i==14);
+assert(j==17);
+assert(z==6);
+println("> Break/Continue Statements: Passed");
+
 // Functions
 function twice(n) {
   temp = n + n;
@@ -197,6 +222,18 @@ a = @squared;
 for (i = 1 : 10) {
   assert(a(i) == squared(i));
 }
+
+varDecFunction = function(number num, string str){
+  return num + str;
+};
+transfer = @varDecFunction;
+assert(varDecFunction(7,"r") == "7.0r");
+assert(transfer(3,"f") == "3.0f");
+varDecFunction = function(number num, string str){
+  return str + num;
+};
+assert(varDecFunction(7,"r") == "r7.0");
+
 println("> Functions: Passed");
 
 // naive bubble sort
@@ -331,14 +368,11 @@ assert(toString(0) == "0.0");
 assert(toString(123.345) == "123.345");
 assert(toString(1.32E10) == "1.32E10");
 assert(toString(1.32E-10) == "1.32E-10");
-
 assert(substring("abc123",2,4) == "c12");
 assert(substring("abc123",2) == "c123");
-
 assert(indexof("abc123","1") == 3);
 assert(indexof("abc123","3") == 5);
 assert(indexof("abc123","q") == -1);
-
 assert(canBeNumber("123"));
 assert(canBeNumber(".123"));
 assert(canBeNumber("123.0"));
@@ -348,7 +382,6 @@ assert(canBeNumber("123.123E12"));
 assert(canBeNumber("123.123E-12"));
 assert(canBeNumber(".123E12"));
 assert(canBeNumber(".123E-12"));
-
 assert(!canBeNumber("123.123E12.5"));
 assert(!canBeNumber("123.123E-12.5"));
 assert(!canBeNumber("123.0.3"));

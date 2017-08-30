@@ -459,6 +459,18 @@ public class TileBaseListener implements TileListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFunctionDeclExpression(TileParser.FunctionDeclExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionDeclExpression(TileParser.FunctionDeclExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFunctionCallExpression(TileParser.FunctionCallExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}

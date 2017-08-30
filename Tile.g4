@@ -114,7 +114,7 @@ expression
  | expression '!=' expression               #notEqExpression
  | expression '&&' expression               #andExpression
  | expression '||' expression               #orExpression
-
+ | Def '(' idList? ')' Start block End      #functionDeclExpression
  | Identifier '.' Identifier                #accessStructExpression
  | assignment                               #assignmentExpression
  | expression In expression                 #inExpression

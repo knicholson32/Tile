@@ -13,6 +13,10 @@ public class EvalListener extends TileBaseListener {
     this.visitor = visitor;
   }
 
+  public void addImport(String importStr){
+    //System.out.println("Add: " + importStr);
+  }
+
   @Override
   public void exitImportStatmemt(TileParser.ImportStatmemtContext ctx){
     //System.out.println(">>>> Adding Parser");

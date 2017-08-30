@@ -84,6 +84,7 @@ public class RunFile {
     TileParser parser = new TileParser(new CommonTokenStream(lexer));
     if(this.allowMaster == true){
       EvalListener ev = new EvalListener(visitor);
+      ev.addImport("util");
       parser.addParseListener(ev);
     }
     parser.setBuildParseTree(true);

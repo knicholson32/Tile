@@ -6,11 +6,15 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.antlr.v4.runtime.ParserRuleContext;
 
 public class FunctionPointer {
-  public final String id;
+  public String id;
   private List<Function> functions = new ArrayList<Function>();
 
   public FunctionPointer(String id){
     this.id = id;
+  }
+
+  public FunctionPointer(){
+
   }
 
   public FunctionPointer(String id, List<Function> functions){
@@ -20,6 +24,14 @@ public class FunctionPointer {
 
   public String getID(){
     return this.id;
+  }
+
+  public void setID(String id){
+    this.id = id;
+  }
+
+  public List<Function> getRawFunctions(){
+    return functions;
   }
 
   public void addFunctionReferece(Function f){
@@ -51,7 +63,7 @@ public class FunctionPointer {
         return t;
       }
     }
-    throw new RuntimeException("Illegal Function call: Function with those params not found"); //TODO: Make this error more comprehensive
+    throw new RuntimeException("Illegal Function call: Function with those params not found: Function: \"" + id + "\""); //TODO: Make this error more comprehensive
   }
 
   public boolean checkExists(Function func){

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -38,6 +39,18 @@ public class EvalVisitor extends TileBaseVisitor<TileValue> {
     public TileValue visitFunctionDecl(TileParser.FunctionDeclContext ctx) {
         return TileValue.VOID;
     }
+
+		// Def '(' idList? ')' Start block End      #functionDeclExpression
+		@Override
+		public TileValue visitFunctionDeclExpression(TileParser.FunctionDeclExpressionContext ctx) {
+			List<TerminalNode> params = ctx.idList() != null ? ctx.idList().Identifier() : new ArrayList<TerminalNode>();
+      List<TileParser.TypeContext> types  = ctx.idList() != null ? ctx.idList().type() : new ArrayList<TileParser.TypeContext>();
+      ParseTree block = ctx.block();
+			FunctionPointer newPointer = new FunctionPointer();
+      Function f = new Function(block, params, types);
+			newPointer.addFunctionReferece(f);
+			return new TileValue(newPointer);
+		}
 
 		@Override
 		public TileValue visitStructDecl(TileParser.StructDeclContext ctx) {

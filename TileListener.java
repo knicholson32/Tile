@@ -419,6 +419,18 @@ public interface TileListener extends ParseTreeListener {
 	 */
 	void exitNullExpression(TileParser.NullExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code functionDeclExpression}
+	 * labeled alternative in {@link TileParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionDeclExpression(TileParser.FunctionDeclExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code functionDeclExpression}
+	 * labeled alternative in {@link TileParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionDeclExpression(TileParser.FunctionDeclExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code functionCallExpression}
 	 * labeled alternative in {@link TileParser#expression}.
 	 * @param ctx the parse tree
