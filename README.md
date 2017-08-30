@@ -1,6 +1,6 @@
 ![Tile Logo](http://www.nickguys.com/lang/Tile-Small-Logo.png)
 
-[![Tag Badge](http://nornick3.zapto.org/tile/events/get_badge.php?type=tag)]()
+[![Tag Badge](http://nornick3.zapto.org/tile/events/badges/tag.svg)]()
 [![Build Badge](http://nornick3.zapto.org/tile/events/get_badge.php?type=build)]()
 [![Assert Badge](http://nornick3.zapto.org/tile/events/get_badge.php?type=assert)]()
 
