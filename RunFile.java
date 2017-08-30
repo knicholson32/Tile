@@ -14,12 +14,35 @@ public class RunFile {
   private List<TileParser> parsers = new ArrayList<TileParser>(3);
   private boolean useCharInput = false;
 
+  public static ArrayList<String[]> importHashCodes = new ArrayList<String[]>(3);
+
   private String file;
   private char[] input;
   private int charLength;
   private Scope useScope = null;
   private Scope parentScope = null;
   private boolean allowMaster = true;
+  private String sourceName = "";
+
+  public static boolean checkHashExists(int hash){
+    String hashStr = "" + hash;
+    for(String[] str : RunFile.importHashCodes){
+      if(str[0].equals(hashStr)){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public static String getSourceOfHash(int hash){
+    String hashStr = "" + hash;
+    for(String[] str : RunFile.importHashCodes){
+      if(str[0].equals(hashStr)){
+        return str[1];
+      }
+    }
+    return null;
+  }
 
   public RunFile(String file){
     this.file = file;
@@ -42,6 +65,10 @@ public class RunFile {
     this.allowMaster = allowMaster;
   }
 
+  public void setSourceName(String sourceName){
+    this.sourceName = sourceName;
+  }
+
 
 
   public void setParentScope(Scope s){
@@ -50,8 +77,10 @@ public class RunFile {
 
   public void run() throws Exception{
     CharStream cs;
+
     if (useCharInput == false){
       cs = new ANTLRFileStream(file);
+      sourceName = file;
     }else{
       cs = new ANTLRInputStream(input, charLength);
     }
@@ -83,7 +112,12 @@ public class RunFile {
 
     TileParser parser = new TileParser(new CommonTokenStream(lexer));
     if(this.allowMaster == true){
-      EvalListener ev = new EvalListener(visitor);
+      EvalListener ev;
+      if(!sourceName.equals("")){
+        ev = new EvalListener(visitor, sourceName);
+      }else{
+        ev = new EvalListener(visitor);
+      }
       ev.addImport("util");
       parser.addParseListener(ev);
     }
