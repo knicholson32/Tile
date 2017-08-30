@@ -47,8 +47,6 @@ assignment
 
 functionCall
  : Identifier '(' exprList? ')' #identifierFunctionCall
- //| expression Identifier expression #sequentialFunctionCall
- //| Println '(' expression? ')'  #printlnFunctionCall
  | Assert '(' expression ')'    #assertFunctionCall
  ;
 
@@ -76,19 +74,11 @@ structDecl
  : Struct Identifier Start idList? End
  ;
 
-/*forStatement
- : For Identifier '=' expression To expression Do block End
- ;*/
-
 forStatement
  : For '(' Identifier '=' ( (expression To expression) | (expression To expression To expression) ) ')' Start block End   #forStepStatment
  | For '(' Identifier '=' expression SColon expression SColon expression ')' Start block End                              #forSTDStatment
  | For '(' Identifier To expression ')' Start block End                                                                   #forEachStatment
  ;
-
-/*whileStatement
- : While expression Do block End
- ;*/
 
 whileStatement
  : While '(' expression ')' Start block End
