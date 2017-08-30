@@ -116,7 +116,6 @@ expression
  | expression '||' expression               #orExpression
 
  | Identifier '.' Identifier                #accessStructExpression
- //| expression '?' expression ':' expression #ternaryExpression
  | assignment                               #assignmentExpression
  | expression In expression                 #inExpression
  | Number                                   #numberExpression
@@ -131,14 +130,6 @@ expression
  | '@' Identifier                           #functionRefExpression
  | expression ISA type                      #isaTypeExpression
  ;
-
-
-/*stringFunctions
- : Substring '(' expression (',' expression)? ')'
- | StrLength '(' expression? ')'
- | IndexOf '(' expression (',' expression)? ')'
- | ToNum '(' ')'
- ;*/
 
 listFunctions
  : Remove '(' expression ')'
