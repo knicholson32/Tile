@@ -1,8 +1,12 @@
 ![Tile Logo](http://www.nickguys.com/lang/Tile-Small-Logo.png)
 
 [![Tag Badge](http://nornick3.zapto.org/tile/events/badges/tag.svg)]()
-[![Build Badge](http://nornick3.zapto.org/tile/events/get_badge.php?type=build)]()
-[![Assert Badge](http://nornick3.zapto.org/tile/events/get_badge.php?type=assert)]()
+[![Build Badge](http://nornick3.zapto.org/tile/events/badges/build.svg)]()
+[![Assert Badge](http://nornick3.zapto.org/tile/events/badges/assert.svg)]()
+
+[![Dev Tag Badge](http://nornick3.zapto.org/tile/events/badges/dev-tag.svg)]()
+[![Dev Build Badge](http://nornick3.zapto.org/tile/events/badges/dev-build.svg)]()
+[![Dev Assert Badge](http://nornick3.zapto.org/tile/events/badges/dev-assert.svg)]()
 
 # Welcome to Tile
 Tile is a Java based (with more to come) programming language written for high fidelity mathematical operations. Its original intended use was for simulated autopilot systems for spacecraft, however it continues to evolve.
