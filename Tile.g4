@@ -47,8 +47,6 @@ assignment
 
 functionCall
  : Identifier '(' exprList? ')' #identifierFunctionCall
- //| expression Identifier expression #sequentialFunctionCall
- //| Println '(' expression? ')'  #printlnFunctionCall
  | Assert '(' expression ')'    #assertFunctionCall
  ;
 
@@ -76,19 +74,11 @@ structDecl
  : Struct Identifier Start idList? End
  ;
 
-/*forStatement
- : For Identifier '=' expression To expression Do block End
- ;*/
-
 forStatement
  : For '(' Identifier '=' ( (expression To expression) | (expression To expression To expression) ) ')' Start block End   #forStepStatment
  | For '(' Identifier '=' expression SColon expression SColon expression ')' Start block End                              #forSTDStatment
  | For '(' Identifier To expression ')' Start block End                                                                   #forEachStatment
  ;
-
-/*whileStatement
- : While expression Do block End
- ;*/
 
 whileStatement
  : While '(' expression ')' Start block End
@@ -124,9 +114,8 @@ expression
  | expression '!=' expression               #notEqExpression
  | expression '&&' expression               #andExpression
  | expression '||' expression               #orExpression
-
+ | Def '(' idList? ')' Start block End      #functionDeclExpression
  | Identifier '.' Identifier                #accessStructExpression
- //| expression '?' expression ':' expression #ternaryExpression
  | assignment                               #assignmentExpression
  | expression In expression                 #inExpression
  | Number                                   #numberExpression
@@ -141,14 +130,6 @@ expression
  | '@' Identifier                           #functionRefExpression
  | expression ISA type                      #isaTypeExpression
  ;
-
-
-/*stringFunctions
- : Substring '(' expression (',' expression)? ')'
- | StrLength '(' expression? ')'
- | IndexOf '(' expression (',' expression)? ')'
- | ToNum '(' ')'
- ;*/
 
 listFunctions
  : Remove '(' expression ')'

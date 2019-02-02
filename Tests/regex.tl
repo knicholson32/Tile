@@ -11,9 +11,29 @@ e = -2 == 4;
 f = -1+1==0;
 
 
-scope();
+//scope();
 
-eval("scope()");
-x = 1E-5;
+//eval("scope()");
+//x = 1E-5;
+//scope();
+i = 0;
+j = 0;
+for(z=1:10){
+
+  while(i < 30){
+    j++;
+    if(i == 10){
+      break;
+    }
+    if(j == 7){
+      continue;
+    }
+    i++;
+  }
+  if(z > 5){
+    i = i + 4;
+    break;
+  }
+}
+
 scope();
-assert(1E-5 == 0.00001);
