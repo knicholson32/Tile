@@ -58,7 +58,6 @@ function indexof(list charList, string val) {
   }
   return -1;
 }
-
 // TODO Maybe find a better way to do this
 // TONUMBER
 //  toNumber=[STRING] : funct

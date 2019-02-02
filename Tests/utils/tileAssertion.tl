@@ -4,6 +4,7 @@
     COPYRIGHT 2017 ROUNDPIXEL
 */
 import "./Tests/utils/global.tl";
+
 println("> Imports: Passed");
 
 // boolean expressions
@@ -15,7 +16,8 @@ assert(!true || !false);
 assert(true && (true || false));
 println("> Boolean Expressions: Passed");
 
-// relational expressions
+// relational expressions//
+
 assert(1 < 2);
 assert(666 >= 666);
 assert(-5 > -6);
@@ -60,6 +62,10 @@ assert(a == "str");
 b = "test";
 assert(!(a == b));
 println("> Variable Operations: Passed");
+
+4 / 4
+
+test(4  3)
 
 // Variable Types
 a = 50;
@@ -192,13 +198,13 @@ assert(squared(squared(squared(2))) == 2^2^2^2);
 assert(lt() == [7,8,9]);
 assert(size(lt()) == 3);
 assert(lt()[1] == 8);
+a = b
 
 a = @squared;
 for (i = 1 : 10) {
   assert(a(i) == squared(i));
 }
 println("> Functions: Passed");
-
 // naive bubble sort
 function sort(lt) {
   while (!sorted(lt)){}
@@ -239,6 +245,8 @@ println("> Recursion: Passed");
 // lists and lookups, `in` operator
 n = [[1,0,0],[0,1,0],[0,0,1]];
 p = [-1, 'abc', true];
+
+
 
 assert('abc' in p);
 assert([0,1,0] in n);
